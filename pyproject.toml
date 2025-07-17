@@ -15,6 +15,10 @@ dependencies = [
 
 [tool.poetry]
 packages = [{include = "projeto01", from = "."}]
+name = "Pipeline de dados"
+version = "0.1.0"
+description = "ETL topster com Python"
+authors = ["Anwar Hermuche <anwarhermuche2@gmail.com>"]
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^8.4.1"
