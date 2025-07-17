@@ -1,24 +1,16 @@
-[project]
-name = "projeto01"
-version = "0.1.0"
-description = ""
-authors = [
-    {name = "Anwar Hermuche",email = "anwarhermuche2@gmail.com"}
-]
-readme = "README.md"
-requires-python = ">=3.13,<4.0"
-dependencies = [
-    "pandas (>=2.3.1,<3.0.0)",
-    "openpyxl (>=3.1.5,<4.0.0)",
-    "python-dotenv (>=1.1.1,<2.0.0)",
-]
-
 [tool.poetry]
-packages = [{include = "projeto01", from = "."}]
-name = "Pipeline de dados"
+name = "projeto01"
 version = "0.1.0"
 description = "ETL topster com Python"
 authors = ["Anwar Hermuche <anwarhermuche2@gmail.com>"]
+readme = "README.md"
+packages = [{include = "projeto01", from = "."}]
+
+[tool.poetry.dependencies]
+python = "^3.13"
+pandas = "^2.3.1"
+openpyxl = "^3.1.5"
+python-dotenv = "^1.1.1"
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^8.4.1"
