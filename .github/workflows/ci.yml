@@ -1,0 +1,43 @@
+name: CI
+
+on: [push]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 🔄 Checkout do repositório
+        uses: actions/checkout@v3
+
+      - name: 🐍 Instala Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.11"
+
+      - name: 📦 Instala Poetry
+        uses: abatilo/actions-poetry@v2
+        with:
+          poetry-version: "1.8.2"
+
+      - name: 📁 Configura cache do Poetry
+        uses: actions/cache@v3
+        with:
+          path: |
+            ~/.cache/pypoetry
+            ~/.cache/pip
+          key: ${{ runner.os }}-poetry-${{ hashFiles('**/poetry.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-poetry-
+
+      - name: 📥 Instala dependências
+        run: poetry install --no-interaction
+
+      - name: 🔍 Lint com Ruff
+        run: |
+          poetry run ruff check .
+          poetry run ruff format --check .
+
+      - name: 🧪 Roda testes com Pytest + cobertura
+        run: |
+          poetry run pytest -v
