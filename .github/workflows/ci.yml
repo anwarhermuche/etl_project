@@ -13,12 +13,12 @@ jobs:
       - name: 🐍 Instala Python
         uses: actions/setup-python@v4
         with:
-          python-version: "3.11"
+          python-version: "3.13.5"
 
       - name: 📦 Instala Poetry
         uses: abatilo/actions-poetry@v2
         with:
-          poetry-version: "1.8.2"
+          poetry-version: "2.1.3"
 
       - name: 📁 Configura cache do Poetry
         uses: actions/cache@v3
